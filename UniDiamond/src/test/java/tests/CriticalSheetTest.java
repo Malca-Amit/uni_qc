@@ -10,51 +10,51 @@ import utils.DBUtils;
 
 public class CriticalSheetTest extends BaseTest {
 	private static List<String> stoneIds;
-	
-	 @BeforeClass
-	    public void getDBData() {
-	        String query = Constant.particularCompanyStones;
-	        stoneIds = DBUtils.getColumnValueFromDB(query, Constant.stoneProductId);
-	    }
-	
+
+	@BeforeClass
+	public void getDBData() {
+		String query = Constant.particularCompanyStones;
+		stoneIds = DBUtils.getColumnValueFromDB(query, Constant.stoneProductId);
+	}
+
 	@Test(priority = 1, enabled = true)
-	  public void verifyThePricesWithMarkupForRetailerUser() throws InterruptedException {
+	public void verifyThePricesWithMarkupForRetailerUser() throws InterruptedException {
 		String stone = stoneIds.get(0);
 		System.out.println("01-" + stone);
-		  login("url", "withoutSubsUsername", "withoutSubspassword");
-			Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
-			page.homePage.goToTheLeftNavigation(Constant.searchLeftNav);
+		login("url", "withoutSubsUsername", "withoutSubspassword");
+		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
+		page.homePage.goToTheLeftNavigation(Constant.searchLeftNav);
 
-			page.homePage.searchStone("01-" + stone);
-			page.searchResultPage.selectListView();
-			double finalPPC = page.searchResultPage.getTheFinalPpcPrice("01-" + stone);
-			double totalPrice = page.searchResultPage.getTheTotalPrice("01-" + stone);
-			System.out.println(finalPPC);
-			System.out.println(totalPrice);
-			
-			page.homePage.logoutTheFrontEndUser();
+		page.homePage.searchStone("01-" + stone);
+		page.searchResultPage.selectListView();
+		double finalPPC = page.searchResultPage.getTheFinalPpcPrice("01-" + stone);
+		double totalPrice = page.searchResultPage.getTheTotalPrice("01-" + stone);
+		System.out.println(finalPPC);
+		System.out.println(totalPrice);
 
-			login("url", "retailerWithSubsUsername", "retailerWithSubspassword");
-			Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
-			page.homePage.searchStone("01-" + stone);
-			page.searchResultPage.selectListView();
-			
-			//verify the retailer markup price on search result page
-			Assert.assertEquals((int)page.searchResultPage.getTheFinalPpcPrice("01-" + stone), (int)(finalPPC*2));
-			Assert.assertEquals((int)page.searchResultPage.getTheTotalPrice("01-" + stone), (int)(totalPrice*2));
-			
-			page.searchResultPage.clickOnAddToCartBtn("01-" + stone);
-			page.searchResultPage.closeTheAddToCartSuccessPopup();
-			page.homePage.clickOnCart();
-			page.shoppingCart.closeInfoPopup();
-			page.shoppingCart.searchStone("01-" + stone);
-			Assert.assertTrue(page.shoppingCart.isSingleSearchResultPresent(1));
-			
-			//verify the retailer markup price on shopping cart page
-			Assert.assertEquals((int)page.shoppingCart.getTheFinalPpcPrice(), (int)(finalPPC*2));
-			Assert.assertEquals((int)page.shoppingCart.getTheTotalPrice(), (int)(totalPrice*2));
-	  }
-	
+		page.homePage.logoutTheFrontEndUser();
+
+		login("url", "retailerWithSubsUsername", "retailerWithSubspassword");
+		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
+		page.homePage.searchStone("01-" + stone);
+		page.searchResultPage.selectListView();
+
+		// verify the retailer markup price on search result page
+		Assert.assertEquals((int) page.searchResultPage.getTheFinalPpcPrice("01-" + stone), (int) (finalPPC * 2));
+		Assert.assertEquals((int) page.searchResultPage.getTheTotalPrice("01-" + stone), (int) (totalPrice * 2));
+
+		page.searchResultPage.clickOnAddToCartBtn("01-" + stone);
+		page.searchResultPage.closeTheAddToCartSuccessPopup();
+		page.homePage.clickOnCart();
+		page.shoppingCart.closeInfoPopup();
+		page.shoppingCart.searchStone("01-" + stone);
+		Assert.assertTrue(page.shoppingCart.isSingleSearchResultPresent(1));
+
+		// verify the retailer markup price on shopping cart page
+		Assert.assertEquals((int) page.shoppingCart.getTheFinalPpcPrice(), (int) (finalPPC * 2));
+		Assert.assertEquals((int) page.shoppingCart.getTheTotalPrice(), (int) (totalPrice * 2));
+	}
+
 	@Test(priority = 2, enabled = true)
 	public void VerifyPriceOnAllMediaIconsForEveryPage() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
@@ -84,10 +84,10 @@ public class CriticalSheetTest extends BaseTest {
 		System.out.println(ppcPriceOnFav);
 		Assert.assertTrue(String.valueOf(finalPpcPrice).contains(ppcPriceOnFav.replaceAll("[^0-9.]", "")));
 		page.searchResultPage.closeThePopup();
-		
+
 		page.homePage.clickOnCart();
 		page.shoppingCart.closeInfoPopup();
-		page.shoppingCart.addStoneToCart(stoneId);	
+		page.shoppingCart.addStoneToCart(stoneId);
 		page.shoppingCart.searchStone(stoneId);
 		Assert.assertTrue(page.shoppingCart.isSingleSearchResultPresent(1));
 		page.shoppingCart.clickOnMediaButton();
@@ -95,14 +95,14 @@ public class CriticalSheetTest extends BaseTest {
 		Assert.assertTrue(String.valueOf(finalPpcPrice).contains(ppcPriceOnCart.replaceAll("[^0-9.]", "")));
 		page.searchResultPage.closeThePopup();
 	}
-	
+
 	@Test(priority = 3, enabled = true)
 	public void verifyUniDiscountShouldNotShowAfterAddTheQC() throws InterruptedException {
 		login("url", "uniDiamondsUsername", "uniDiamondspassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
-		page.homePage.goToTheLeftNavigation("cart");	
+		page.homePage.goToTheLeftNavigation("cart");
 		page.shoppingCart.closeInfoPopup();
-		page.shoppingCart.addStoneToCart("01-11479276");	
+		page.shoppingCart.addStoneToCart("01-11479276");
 		page.shoppingCart.searchStone("01-11479276");
 		Assert.assertTrue(page.shoppingCart.isSingleSearchResultPresent(1));
 		page.shoppingCart.addToQC();
@@ -111,9 +111,10 @@ public class CriticalSheetTest extends BaseTest {
 		page.shoppingCart.selectCheckbox();
 		Assert.assertFalse(page.shoppingCart.isUniDiscountDisplayed(), "Uni Discount is unexpectedly displayed.");
 		page.shoppingCart.clickOnBuyNowBtn();
-		Assert.assertFalse(page.paymentDetailsPage.getBuyDetails().contains("Uni Discount"), "'Uni Discount' should not be present, but it was found.");
+		Assert.assertFalse(page.paymentDetailsPage.getBuyDetails().contains("Uni Discount"),
+				"'Uni Discount' should not be present, but it was found.");
 	}
-	
+
 	@Test(priority = 4, enabled = true)
 	public void verifyUserIsNotAbleToPlaceBidOfferForTheQcStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
@@ -141,15 +142,15 @@ public class CriticalSheetTest extends BaseTest {
 		page.shoppingCart.clickOnSingleBid();
 		Assert.assertTrue(page.shoppingCart.isAlertMessageDisplayed(), "Alert message is not displayed");
 	}
-	
+
 	@Test(priority = 5, enabled = true)
 	public void verifyAddingMultipleStoneUsingQuickSearch() throws InterruptedException {
 		String firstStone = stoneIds.get(1);
 		String secondStone = stoneIds.get(2);
 		login("url", "withoutSubsUsername", "withoutSubspassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
-		
-		page.homePage.searchStone("01-"+firstStone, "01-"+secondStone);
+
+		page.homePage.searchStone("01-" + firstStone, "01-" + secondStone);
 		Assert.assertTrue(page.searchResultPage.getStoneCount().contains(Constant.stoneFound), "stone not found");
 	}
 }
