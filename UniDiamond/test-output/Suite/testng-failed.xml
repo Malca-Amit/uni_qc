@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utils.ExtentRepoertListeners"/>
+  </listeners>
+  <test thread-count="5" name="retailerPrice(failed)">
+    <classes>
+      <class name="tests.CriticalSheetTest">
+        <methods>
+          <include name="verifyUserIsNotAbleToPlaceBidOfferForTheQcStone"/>
+          <include name="verifyUniDiscountShouldNotShowAfterAddTheQC"/>
+          <include name="verifyAddingMultipleStoneUsingQuickSearch"/>
+          <include name="getDBData"/>
+          <include name="tearDown"/>
+          <include name="VerifyPriceOnAllMediaIconsForEveryPage"/>
+          <include name="verifyThePricesWithMarkupForRetailerUser"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.CriticalSheetTest -->
+    </classes>
+  </test> <!-- retailerPrice(failed) -->
+</suite> <!-- Failed suite [Suite] -->
