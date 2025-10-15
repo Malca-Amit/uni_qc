@@ -17,14 +17,25 @@ public class PaymentDetailsPage {
 	By firstTermsConditions = By.cssSelector("[class='checkboxArea'] [for='term1']");
 	By secondTermsConditions = By.cssSelector("[class='checkboxArea'] [for='term2']");
 	By placeOrderBtn = By.cssSelector("[name*='_submit']");
-	By termsConditionForMemo = By.cssSelector("[class='checkbox']");
+	By termsConditionForMemo = By.cssSelector("[class='checkbox-term-conditions']");
+	By returnShipmentAgreement = By.cssSelector("[class='return-shipment-agreement']");
 	By bidTermsElements = By.cssSelector("[data-field-caption='Terms And Conditions']:nth-of-type(1)");
 	By buyDetails = By.cssSelector("[class=' buy_details']");
 	By shippingAddress = By.cssSelector("[data-field-caption='Shipping Address']");
+	private By totalPrice(String stoneId) {
+		return By.xpath("//td[text()='" + stoneId + "']/following-sibling::td[contains(@id, 'total_price_id_')]");
+	}
 
 	public PaymentDetailsPage(WebDriver driver) {
 		this.driver = driver;
 		eu = new ElementUtils(driver);
+	}
+	
+	public double getTheTotalPrice(String stoneId) {
+		eu.waitForElementVisible(totalPrice(stoneId));
+		String totalPrice = eu.doGetText(totalPrice(stoneId));
+		double total = Double.parseDouble(totalPrice.replace("$", "").replace(",", "").trim());
+		return total;
 	}
 
 	public void clickOnTermsConditions() {
@@ -40,8 +51,9 @@ public class PaymentDetailsPage {
 	}
 
 	public void selectMemoTermsAndCondition() {
-		eu.waitForElementPresence(termsConditionForMemo);
-		eu.jsScroll(termsConditionForMemo);
+		eu.waitForElementPresence(returnShipmentAgreement);
+		eu.jsScroll(returnShipmentAgreement);
+		eu.waitForElementClickable(returnShipmentAgreement).click();
 		eu.waitForElementClickable(termsConditionForMemo).click();
 	}
 

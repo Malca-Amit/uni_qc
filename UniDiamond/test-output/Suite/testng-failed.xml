@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+<suite thread-count="1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="utils.ExtentRepoertListeners"/>
   </listeners>
-  <test thread-count="5" name="retailerPrice(failed)">
+  <test thread-count="1" name="PurchaseNaturalStone(failed)">
     <classes>
-      <class name="tests.CriticalSheetTest">
+      <class name="tests.PurchaseWorkflowForNaturalStoneTest">
         <methods>
-          <include name="verifyUserIsNotAbleToPlaceBidOfferForTheQcStone"/>
-          <include name="verifyUniDiscountShouldNotShowAfterAddTheQC"/>
-          <include name="verifyAddingMultipleStoneUsingQuickSearch"/>
-          <include name="getDBData"/>
+          <include name="verifyUserCanPlaceOfferUsingMemoWithMultipleNaturalStones"/>
           <include name="tearDown"/>
-          <include name="VerifyPriceOnAllMediaIconsForEveryPage"/>
-          <include name="verifyThePricesWithMarkupForRetailerUser"/>
+          <include name="verifyUserCanPlaceOfferUsingMemoForNaturalStone"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tests.CriticalSheetTest -->
+      </class> <!-- tests.PurchaseWorkflowForNaturalStoneTest -->
     </classes>
-  </test> <!-- retailerPrice(failed) -->
+  </test> <!-- PurchaseNaturalStone(failed) -->
 </suite> <!-- Failed suite [Suite] -->

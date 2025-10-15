@@ -18,7 +18,7 @@ public class WednesdaySheetTest extends BaseTest {
 		stoneIds = DBUtils.getColumnValueFromDB(query, Constant.stoneProductId);
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void verifyCreateMemoOfferWithSingleStoneAndAcceptFromSeller() throws InterruptedException {
 		String stoneId = stoneIds.get(0);
 		login("url", "frontendUsername", "frontendpassword");
@@ -52,7 +52,7 @@ public class WednesdaySheetTest extends BaseTest {
 		Assert.assertTrue(page.vendorOrdersPage.isPendingShipmentStatusIsDisplayed());
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void verifyCreateMemoOfferWithSingleStoneAndRejectFromSeller() throws InterruptedException {
 		String stoneId = stoneIds.get(1);
 		login("url", "frontendUsername", "frontendpassword");

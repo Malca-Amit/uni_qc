@@ -31,8 +31,8 @@ public class Constant {
 	//My Order Page
 	public static String myOrdersLeftNav = "my-orders";
 	public static String reason = "Item damaged/defective";
-	public static String returnStoneId = "01-04299612"; 
-	public static String buyStoneId = "01-10342907"; 
+	public static String returnStoneId = "01-11631085"; 
+	public static String buyStoneId = "      "; 
 	
 	//payment Details Page
 	public static String shippingAddress = "United";
@@ -44,6 +44,7 @@ public class Constant {
 	public static String retailerMarkupPriceStone = "01-11665372"; 
 	
 	//Shopping Cart
+	public static String cartPageUrl = "cart"; 
 	public static String memoAcceptFromSeller = "01-01623199"; 
 	public static String memoRejectFromSeller = "01-01469338"; 	
 	public static String bidAcceptFromSeller = "01-00873117"; 

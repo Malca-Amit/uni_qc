@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.CriticalSheetTest">
+      <class name="tests.PriceTest">
         <methods>
-          <include name="getDBData"/>
+          <include name="getStoneIdsFromDb"/>
           <include name="tearDown"/>
-          <include name="verifyThePricesWithMarkupForRetailerUser"/>
+          <include name="verifyTheFinalTotalPrice"/>
+          <include name="getStoneTotalPrice"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tests.CriticalSheetTest -->
+      </class> <!-- tests.PriceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
