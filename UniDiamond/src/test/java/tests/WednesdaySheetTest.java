@@ -187,4 +187,34 @@ public class WednesdaySheetTest extends BaseTest {
 		String[] orderNumbers = page.orderConfirmationPage.getOrderNumbers();
 		Assert.assertNotEquals(orderNumbers[0], orderNumbers[1], "Order numbers should be different");
 	}
+	
+	@Test(priority = 6, enabled = true)
+	public void verifyReturnTheMemoStone() {
+		login("url", "frontendUsername", "frontendpassword");
+		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
+		page.homePage.goToTheLeftNavigation(Constant.myOrdersLeftNav);
+		page.myOrdersPage.searchStoneId(Constant.returnStoneId);
+		Assert.assertTrue(page.myOrdersPage.isSingleSearchResultPresent());
+		page.myOrdersPage.clickOnReturnBtn();
+		Assert.assertTrue(page.myOrdersPage.isReturnPopupDisplayed());
+		page.myOrdersPage.clickOnReturnSelectedItemBtn();
+		Assert.assertTrue(page.myOrdersPage.isInnerReturnPopupDisplayed());
+		page.myOrdersPage.selectReason(Constant.reason);
+		page.myOrdersPage.clickOnReturnStonesBtn();
+		Assert.assertTrue(page.myOrdersPage.isSuccessMessageDisplayed());
+	}
+	
+	@Test(priority = 7, enabled = true)
+	public void verifyBuyTheMemoStone() {
+		login("url", "frontendUsername", "frontendpassword");
+		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
+		page.homePage.goToTheLeftNavigation(Constant.myOrdersLeftNav);
+		page.myOrdersPage.searchStoneId(Constant.buyStoneId);
+		Assert.assertTrue(page.myOrdersPage.isSingleSearchResultPresent());
+		page.myOrdersPage.clickOnBuyBtn();
+		Assert.assertTrue(page.myOrdersPage.isBuyStonePopupDisplayed());
+		page.myOrdersPage.checkTermsAndCondition();
+		page.myOrdersPage.clickOnBuyThiStoneBtn();
+		Assert.assertTrue(page.myOrdersPage.isSuccessMessageDisplayed());
+	}
 }

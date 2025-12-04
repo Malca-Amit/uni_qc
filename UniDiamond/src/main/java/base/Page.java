@@ -11,6 +11,7 @@ import pages.PaymentDetailsPage;
 import pages.SearchPage;
 import pages.SearchResultPage;
 import pages.ShoppingCart;
+import pages.StoneDetailsPage;
 import pages.VendorOrdersPage;
 
 public class Page {
@@ -24,6 +25,7 @@ public class Page {
 	public MyOrdersPage myOrdersPage;
 	public VendorOrdersPage vendorOrdersPage;
 	public MyFavoritesPage myFavoritesPage;
+	public StoneDetailsPage stoneDetailsPage;
 
 	public Page(WebDriver driver) {
 		loginPage = new LoginPage(driver);
@@ -36,5 +38,6 @@ public class Page {
 		myOrdersPage = new MyOrdersPage(driver);
 		vendorOrdersPage = new VendorOrdersPage(driver);
 		myFavoritesPage = new MyFavoritesPage(driver);
+		stoneDetailsPage = new StoneDetailsPage(driver);
 	}
 }

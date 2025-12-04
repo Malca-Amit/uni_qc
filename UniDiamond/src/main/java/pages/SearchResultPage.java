@@ -40,7 +40,9 @@ public class SearchResultPage {
 	By successMessage = By.cssSelector("[class='alert alert--positioned alert--success-1 alert--info']");
 	By mediaIcon = By.cssSelector("[class='circleBtn no-click-cls']");
 	By rowLocator = By.cssSelector("tr[id^='stoneDiv_']"); 
-	By tableHeader = By.cssSelector("[class='tablesorter-headerRow']");  
+	By tableHeader = By.cssSelector("[class='tablesorter-headerRow']"); 
+	By gridView = By.cssSelector("[for='graph-view']");
+	By detailsBtn = By.xpath("(//a[@class='detail-btn'])[3]");
 	
 	public SearchResultPage(WebDriver driver) {
 		this.driver = driver;
@@ -172,5 +174,21 @@ public class SearchResultPage {
 	
 	public boolean isSearchResultTableDisplayed() {
 		return eu.waitForElementVisible(tableHeader).isDisplayed();
+	}
+	
+	public void selectGridView() throws InterruptedException {
+		/*
+		 * eu.jsWaitForPageLoad(); Thread.sleep(3000);
+		 */
+		eu.waitForElementClickable(gridView);
+		eu.waitForElementClickable(gridView).click();
+		eu.jsWaitForPageLoad();
+		/* Thread.sleep(2000); */
+	}
+	
+	public void clickOnDetailsBtn() throws InterruptedException{
+		Thread.sleep(2000);
+		eu.waitForElementVisible(detailsBtn);
+		eu.waitForElementClickable(detailsBtn).click();
 	}
 }

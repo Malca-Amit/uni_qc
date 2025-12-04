@@ -4,16 +4,16 @@
   <listeners>
     <listener class-name="utils.ExtentRepoertListeners"/>
   </listeners>
-  <test thread-count="1" name="PurchaseNaturalStone(failed)">
+  <test thread-count="1" name="WednesdaySheetTest(failed)">
     <classes>
-      <class name="tests.PurchaseWorkflowForNaturalStoneTest">
+      <class name="tests.WednesdaySheetTest">
         <methods>
-          <include name="verifyUserCanPlaceOfferUsingMemoWithMultipleNaturalStones"/>
+          <include name="verifyCreateMemoOfferWithSingleStoneAndAcceptFromSeller"/>
           <include name="tearDown"/>
-          <include name="verifyUserCanPlaceOfferUsingMemoForNaturalStone"/>
           <include name="setup"/>
+          <include name="getDBData"/>
         </methods>
-      </class> <!-- tests.PurchaseWorkflowForNaturalStoneTest -->
+      </class> <!-- tests.WednesdaySheetTest -->
     </classes>
-  </test> <!-- PurchaseNaturalStone(failed) -->
+  </test> <!-- WednesdaySheetTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

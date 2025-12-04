@@ -203,7 +203,7 @@ public class ElementUtils {
 			LogUtils.debug("An exception occurs while getting element :" + e.getMessage());
 		}
 	}
-	
+
 	public void actionClick(By locator) {
 		WebElement ele = getElement(locator);
 		Actions act = new Actions(driver);
@@ -253,7 +253,8 @@ public class ElementUtils {
 	}
 
 	public Boolean waitForTextPresent(By locator, String text, Integer... timeout) {
-		return getWait(resolveTimeout(timeout)).until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
+		return getWait(resolveTimeout(timeout))
+				.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
 	}
 
 	public boolean waitForExactNumberOfElements(By locator, int expectedCount, Integer... timeout) {

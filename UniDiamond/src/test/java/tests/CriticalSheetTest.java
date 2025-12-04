@@ -24,6 +24,7 @@ public class CriticalSheetTest extends BaseTest {
 		login("url", "withoutSubsUsername", "withoutSubspassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
 		page.homePage.goToTheLeftNavigation(Constant.searchLeftNav);
+		
 
 		page.homePage.searchStone("01-" + stone);
 		page.searchResultPage.selectListView();

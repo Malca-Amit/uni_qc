@@ -217,4 +217,40 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 		Assert.assertTrue(
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.bidOfferConfirmationMessage));
 	}
+	
+	@Test(priority = 6, enabled = true)
+	public void verifyUserCanPlaceMemoOfferFromStoneDetails() throws InterruptedException {
+		login("url", "frontendUsername", "frontendpassword");
+		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
+		page.homePage.goToTheLeftNavigation(Constant.searchLeftNav);
+
+		Assert.assertTrue(page.searchPage.getPageHeader().contains(Constant.pageHeader));
+		page.searchPage.selectSearchBasicInfo(Constant.natural, Constant.DIAMOND_SHAPES, Constant.CARAT_SIZE_RANGES,
+				Constant.DIAMOND_COLORS, Constant.DIAMOND_CLARITIES);
+		page.searchPage.selectCountry(Constant.country);
+		page.searchPage.selectStonePermissions(Constant.MEMO_PERMISSIONS);
+		page.searchPage.clickOnSearchBtn();
+		page.searchResultPage.selectGridView();
+		page.searchResultPage.clickOnDetailsBtn();
+		
+		  // Get the current window handle (main window)
+	    String mainWindow = driver.getWindowHandle();
+
+	    // Switch to the new window that opens after clicking on Details button
+	    for (String windowHandle : driver.getWindowHandles()) {
+	        if (!windowHandle.equals(mainWindow)) {
+	            driver.switchTo().window(windowHandle);
+	            break;  // Switch to the new window and break out of the loop
+	        }
+	    }
+	    Assert.assertTrue(page.stoneDetailsPage.isStoneDetailsSectionDisplayed(), "Memo popup is not visible");
+		page.stoneDetailsPage.clickOnMemo();
+		page.shoppingCart.closeInfoPopup();
+		page.shoppingCart.clickYesOnSimilarStoneConfirmationPopup();
+		Assert.assertTrue(page.stoneDetailsPage.isPopupDisplayed(), "Memo popup is not visible");
+		page.stoneDetailsPage.selectTermsCondition();
+		page.stoneDetailsPage.clickOnPlaceOrder();
+		Assert.assertTrue(
+				page.stoneDetailsPage.getMemoPlacedSuccessMessage().contains("Your memo has been submitted"));
+	}
 }

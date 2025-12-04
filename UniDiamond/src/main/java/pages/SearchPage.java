@@ -43,6 +43,7 @@ public class SearchPage {
 
 	By btnSearch = By.cssSelector("[class='btn primary-btn btn-search-uni']");
 	By recentSearch = By.cssSelector("[class='editPencil span-left']:nth-of-type(1)");
+	By alertMessage = By.cssSelector("[class='alert alert--positioned alert--success-1 alert--danger']");
 
 	public SearchPage(WebDriver driver) {
 		this.driver = driver;
@@ -103,5 +104,10 @@ public class SearchPage {
 	public String getRecentSearchValue() {
 		eu.jsWaitForPageLoad();
 		return eu.doGetText(recentSearch);
+	}
+	
+	public  boolean isAlertMessageDisplayed() {
+		eu.jsWaitForPageLoad();
+		return eu.waitForElementVisible(alertMessage).isDisplayed();
 	}
 }

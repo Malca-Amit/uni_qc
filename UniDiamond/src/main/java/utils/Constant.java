@@ -31,8 +31,8 @@ public class Constant {
 	//My Order Page
 	public static String myOrdersLeftNav = "my-orders";
 	public static String reason = "Item damaged/defective";
-	public static String returnStoneId = "01-11631085"; 
-	public static String buyStoneId = "      "; 
+	public static String returnStoneId = "01-08491200"; 
+	public static String buyStoneId = "01-11789300"; 
 	
 	//payment Details Page
 	public static String shippingAddress = "United";
@@ -65,4 +65,5 @@ public class Constant {
 	// 01-11479276 Remove QA from Aditya User
 	// need to update Buy and return stones from frontend
 	
+	//Git access token: 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
 }
