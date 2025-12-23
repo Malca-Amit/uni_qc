@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.PurchaseWorkflowForNaturalStoneTest">
+      <class name="tests.PriceTest">
         <methods>
+          <include name="getStoneIdsFromDb"/>
           <include name="tearDown"/>
-          <include name="verifyUserCanPlaceMemoOfferFromStoneDetails"/>
           <include name="setup"/>
+          <include name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckout"/>
         </methods>
-      </class> <!-- tests.PurchaseWorkflowForNaturalStoneTest -->
+      </class> <!-- tests.PriceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

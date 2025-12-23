@@ -51,8 +51,29 @@ public class Constant {
 	public static String bidRejectFromSeller = "01-00851951";
 	
 	//Data Base
-	public static String particularCompanyStones = "Select * from tbl_data_stones Where stone_is_bid_permission=1 and stone_is_memo_permission=1 and stone_company_id=550 and stone_country=223 Order By stone_product_id desc"; 
-	public static String stoneProductId = "stone_product_id"; 	
+	public static String particularCompanyStones = "Select * from tbl_data_stones Where stone_is_bid_permission=1 and stone_is_memo_permission=1 and stone_company_id=550 and stone_country=223 and stone_size < 1.5 order By stone_product_id desc"; 
+	public static String stoneProductId = "stone_product_id";
+	
+	public static String breakdown(String productId) {
+
+	    String breakdownValue =
+	            "SELECT STONE_PRICE_WITH_BREAKDOWN(1, " + productId + ", 4830, 0, JSON_OBJECT(" +
+	            " 'includePriorityDiscount', 1," +
+	            " 'includeBrokerage', 0," +
+	            " 'includeCreditCost', 1," +
+	            " 'includeUniMargin', 0," +
+	            " 'includeDataMargin', 1," +
+	            " 'includeRetailerMarkup', 0," +
+	            " 'includeBreakDown', 1," +
+	            " 'includeUSImportTax', 0," +
+	            " 'shippingAddressId', 0," +
+	            " 'includeQC', 0," +
+	            " 'includeOriginDeclaration', 0," +
+	            " 'includeLGHandlingFee', 0" +
+	            ")) AS prodprice_ask_total_price;";
+
+	    return breakdownValue;
+	}
 	
 	/*
 	 * Note 

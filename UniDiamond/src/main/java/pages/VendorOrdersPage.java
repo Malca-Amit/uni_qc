@@ -40,7 +40,7 @@ public class VendorOrdersPage {
 		return eu.waitForElementVisible(pageTitle).isDisplayed();
 	}
 
-	public void searchWithStoneIdOrCertificateNo(String value) {
+	public void searchWithStoneIdOrCertificateNo(String value) {		
 		eu.waitForElementVisible(summaryDetails);
 		eu.waitForElementInVisible(noRecordFoundPageLoader);
 		eu.waitForElementVisible(searchWithStoneIdCertificateNo);

@@ -16,7 +16,7 @@ public class PurchaseWorkflowForLabGrownStoneTest extends BaseTest {
 		page.searchPage.selectSearchBasicInfo(Constant.labGrown, Constant.DIAMOND_SHAPES_LAB_GROWN,
 				Constant.CARAT_SIZE_RANGES, Constant.DIAMOND_COLORS, Constant.DIAMOND_CLARITIES);
 		page.searchPage.clickOnSearchBtn();
-		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
+		//Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		page.searchResultPage.selectListView();
 		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		String stoneId = page.searchResultPage.getStoneId();
@@ -49,7 +49,7 @@ public class PurchaseWorkflowForLabGrownStoneTest extends BaseTest {
 		page.searchPage.selectCountry(Constant.country);
 		page.searchPage.selectStonePermissions(Constant.MEMO_PERMISSIONS);
 		page.searchPage.clickOnSearchBtn();
-		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
+		//Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		page.searchResultPage.selectListView();
 		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		String stoneId = page.searchResultPage.getStoneId();
@@ -82,7 +82,7 @@ public class PurchaseWorkflowForLabGrownStoneTest extends BaseTest {
 		page.searchPage.selectSearchBasicInfo(Constant.labGrown, Constant.DIAMOND_SHAPES_LAB_GROWN,
 				Constant.CARAT_SIZE_RANGES, Constant.DIAMOND_COLORS, Constant.DIAMOND_CLARITIES);
 		page.searchPage.clickOnSearchBtn();
-		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
+		//Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		page.searchResultPage.selectListView();
 		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		String firstStoneId = page.searchResultPage.getStoneId();
@@ -119,7 +119,7 @@ public class PurchaseWorkflowForLabGrownStoneTest extends BaseTest {
 		page.searchPage.selectCountry(Constant.country);
 		page.searchPage.selectStonePermissions(Constant.MEMO_PERMISSIONS);
 		page.searchPage.clickOnSearchBtn();
-		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
+		//Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		page.searchResultPage.selectListView();
 		Assert.assertTrue(page.searchResultPage.isSearchResultTableDisplayed());
 		String firstStoneId = page.searchResultPage.getStoneId();

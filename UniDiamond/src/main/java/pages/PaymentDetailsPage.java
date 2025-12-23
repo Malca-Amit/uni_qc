@@ -25,6 +25,8 @@ public class PaymentDetailsPage {
 	private By totalPrice(String stoneId) {
 		return By.xpath("//td[text()='" + stoneId + "']/following-sibling::td[contains(@id, 'total_price_id_')]");
 	}
+	By totalPrice = By.cssSelector("[class='fw600 tab_1']");
+	By handlingfee = By.xpath("//*[@id='buyStoneFrm']/div/div/ul/li[6]/span[2]");
 
 	public PaymentDetailsPage(WebDriver driver) {
 		this.driver = driver;
@@ -75,5 +77,33 @@ public class PaymentDetailsPage {
 		eu.waitForElementVisible(shippingAddress);
 		Select drp = new Select(eu.getElement(shippingAddress));
 		drp.selectByIndex(1);
+	}
+	
+	public double getTotalprice() {
+		eu.waitForElementPresence(totalPrice);
+		String totalHandlingFee = eu.doGetText(totalPrice);
+		double totalPrice = Double.parseDouble(totalHandlingFee.replace("$", "").replace(",", "").trim());
+		return totalPrice;
+	}
+	
+	public double CalculatePercentageOfCreditCostAndDMargin(double buyPrice){
+	    // First 10%
+	    double firstTenPercent = buyPrice * 0.10;
+
+	    // Add to buy price
+	    double newPrice = buyPrice + firstTenPercent;
+
+	    // Second 10%
+	    double secondTenPercent = newPrice * 0.10;
+
+	    // Final addition
+	    return firstTenPercent + secondTenPercent;
+	}
+	
+	public double getHandlingFee() {
+		eu.waitForElementPresence(handlingfee);
+		String totalHandlingFee = eu.doGetText(handlingfee);
+		double total = Double.parseDouble(totalHandlingFee.replace("$", "").replace(",", "").trim());
+		return total;
 	}
 }

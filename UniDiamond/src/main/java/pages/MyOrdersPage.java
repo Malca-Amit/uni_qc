@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import utils.ElementUtils;
 
@@ -19,6 +20,9 @@ public class MyOrdersPage {
 	By buyStonePopup = By.cssSelector("[id='frm_fat_id_buyStoneFrm']");
 	By termsAndCondition = By.cssSelector("[name='terms_conditions']");
 	By buyThisStoneBtn = By.cssSelector("input[type='submit']");
+	By allOrderTab = By.cssSelector("a[data-tab='all-orders']");
+	By totalPrice = By.cssSelector("[title*='Total Price:']");
+	By noResultFoundMessage = By.cssSelector("[class='empty-state-inner']");
 
 	private By returnReason(String reason) {
 		return By.xpath("//*[contains(text(),'" + reason + "')]");
@@ -33,10 +37,12 @@ public class MyOrdersPage {
 	}
 
 	public void searchStoneId(String stoneId) {
+		eu.jsWaitForPageLoad();
 		eu.waitForAllElementPresence(tableRow);
 		eu.waitForElementVisible(searchInput);
+		eu.getElement(searchInput).clear();
 		eu.doSendKeys(searchInput, stoneId);
-		eu.waitForElementClickable(searchIcon).click();
+		eu.getElement(searchInput).sendKeys(Keys.ENTER);
 	}
 
 	public void clickOnReturnBtn() {
@@ -87,5 +93,22 @@ public class MyOrdersPage {
 	public void clickOnBuyThiStoneBtn() {
 		eu.jsScroll(buyThisStoneBtn);
 		eu.waitForElementClickable(buyThisStoneBtn).click();
+	}
+	
+	public void clickOnAllOrdersTab() {
+		eu.jsWaitForPageLoad();
+		eu.waitForElementClickable(allOrderTab).click();
+	}
+	
+	public double getTotalPrice() {
+		eu.waitForElementVisible(totalPrice);
+		String price = eu.doGetText(totalPrice);
+		double total = Double.parseDouble(price.replace("$", "").replace(",", "").trim());
+		return total;
+	}
+	
+	public boolean isDisplayedNoResultFound() {
+		eu.jsWaitForPageLoad();
+		return eu.waitForElementVisible(noResultFoundMessage).isDisplayed();
 	}
 }

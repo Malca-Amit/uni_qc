@@ -9,13 +9,15 @@ public class StoneDetailsPage {
 	WebDriver driver;
 	ElementUtils eu;
 
-	By memo = By.cssSelector("[onclick*='memoAction']");
+	By memoBtn = By.cssSelector("[onclick*='memoAction']");
 	By popup = By.cssSelector("[class='popup ']");
 	By returnShipmentAgreement = By.cssSelector("[class='return-shipment-agreement']");
 	By termCondition = By.cssSelector("[class='checkbox-term-conditions']");
 	By placeOrder = By.cssSelector("[onclick*='placeMemoOrder']");
 	By memoPlacedSuccessMessage = By.cssSelector("[class='-line-title']");
 	By stoneDetailsSection = By.cssSelector("[class='stone-details-section ']");
+	By bidBtn = By.cssSelector("[class=' btn bid-btn']");
+	By submitBtn = By.cssSelector("[type='submit']");
 
 	public StoneDetailsPage(WebDriver driver) {
 		this.driver = driver;
@@ -23,10 +25,9 @@ public class StoneDetailsPage {
 		eu.jsWaitForPageLoad();
 	}
 	
-	public void clickOnMemo() throws InterruptedException {
-		//Thread.sleep(5000);
-		eu.waitForElementVisible(memo);
-		eu.waitForElementClickable(memo).click();
+	public void clickOnMemo(){
+		eu.waitForElementVisible(memoBtn);
+		eu.waitForElementClickable(memoBtn).click();
 		eu.jsWaitForPageLoad();
 	}
 	
@@ -51,5 +52,15 @@ public class StoneDetailsPage {
 	
 	public boolean isStoneDetailsSectionDisplayed() {
 		return eu.waitForElementVisible(stoneDetailsSection).isDisplayed();
+	}
+	
+	public void clickOnBid(){
+		eu.waitForElementVisible(bidBtn);
+		eu.waitForElementClickable(bidBtn).click();
+		eu.jsWaitForPageLoad();
+	}
+	
+	public void clickOnSubmitBtn(){
+		eu.waitForElementClickable(submitBtn).click();
 	}
 }

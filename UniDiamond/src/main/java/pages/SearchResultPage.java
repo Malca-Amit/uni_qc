@@ -39,47 +39,52 @@ public class SearchResultPage {
 	By closePopupButton = By.cssSelector("a[class='close']");
 	By successMessage = By.cssSelector("[class='alert alert--positioned alert--success-1 alert--info']");
 	By mediaIcon = By.cssSelector("[class='circleBtn no-click-cls']");
-	By rowLocator = By.cssSelector("tr[id^='stoneDiv_']"); 
-	By tableHeader = By.cssSelector("[class='tablesorter-headerRow']"); 
+	By rowLocator = By.cssSelector("tr[id^='stoneDiv_']");
+	By tableHeader = By.cssSelector("[class='tablesorter-headerRow']");
 	By gridView = By.cssSelector("[for='graph-view']");
 	By detailsBtn = By.xpath("(//a[@class='detail-btn'])[3]");
-	
+	By grid = By.cssSelector("[class*='tabScatrLinks isGridTab']");
+
 	public SearchResultPage(WebDriver driver) {
 		this.driver = driver;
 		eu = new ElementUtils(driver);
 	}
 
 	public void selectListView() throws InterruptedException {
-		/*
-		 * eu.jsWaitForPageLoad(); Thread.sleep(3000);
-		 */
-		eu.waitForElementClickable(listView);
-		eu.waitForElementClickable(listView).click();
 		eu.jsWaitForPageLoad();
-		/* Thread.sleep(2000); */
+		if (eu.getElement(grid).getAttribute("class").contains("active")) {
+			eu.waitForElementClickable(listView).click();
+		} else {
+			eu.waitForElementVisible(tableHeader).isDisplayed();
+			System.out.println("Grid view is not active. No action needed.");
+		}
+//		Thread.sleep(3000);
+//		eu.jsWaitForPageLoad();
+//		eu.waitForElementClickable(listView);
+//		eu.waitForElementClickable(listView).click();
+//		eu.jsWaitForPageLoad();
 	}
 
 	public String getStoneId() {
-	    eu.jsWaitForPageLoad();
-	    eu.waitForElementVisible(stoneIdLocator);
+		eu.jsWaitForPageLoad();
+		eu.waitForElementVisible(stoneIdLocator);
 
-	    List<WebElement> stoneIdElements = driver.findElements(stoneIdLocator);
-	    List<WebElement> addToCartButtons = driver.findElements(addToCartButtonLocator);
+		List<WebElement> stoneIdElements = driver.findElements(stoneIdLocator);
+		List<WebElement> addToCartButtons = driver.findElements(addToCartButtonLocator);
 
-	    int count = Math.min(stoneIdElements.size(), addToCartButtons.size());
+		int count = Math.min(stoneIdElements.size(), addToCartButtons.size());
 
-	    for (int i = 0; i < count; i++) {
-	        try {
-	            if (addToCartButtons.get(i).isDisplayed() && addToCartButtons.get(i).isEnabled()) {
-	                return stoneIdElements.get(i).getText().trim();
-	            }
-	        } catch (Exception ignored) {
-	            // element may go stale, retry next iteration
-	        }
-	    }
-	    return null;
+		for (int i = 0; i < count; i++) {
+			try {
+				if (addToCartButtons.get(i).isDisplayed() && addToCartButtons.get(i).isEnabled()) {
+					return stoneIdElements.get(i).getText().trim();
+				}
+			} catch (Exception ignored) {
+				// element may go stale, retry next iteration
+			}
+		}
+		return null;
 	}
-
 
 	public void clickOnAddToCartBtn(String stoneId) {
 		eu.jsWaitForPageLoad();
@@ -105,7 +110,7 @@ public class SearchResultPage {
 		eu.jsClick(addToCartSuccesPopupCloseBtn);
 	}
 
-	public double getTheFinalPpcPrice(String stoneId){
+	public double getTheFinalPpcPrice(String stoneId) {
 		eu.waitForElementVisible(finalPPC(stoneId));
 		String finalPpc = eu.doGetText(finalPPC(stoneId));
 		double PpcPrice = Double.parseDouble(finalPpc.replace("$", "").replace(",", "").trim());
@@ -123,24 +128,24 @@ public class SearchResultPage {
 		double price = Double.parseDouble(totalPrice.replace("$", "").replace(",", "").trim());
 		return price * 2;
 	}
-	
+
 	public String getStoneIdForFirstEnabledMediaIcon() throws InterruptedException {
 		eu.jsWaitForPageLoad();
 		eu.waitForElementVisible(stoneIdLocator);
 		Thread.sleep(5000);
-	    List<WebElement> rows = driver.findElements(rowLocator);
+		List<WebElement> rows = driver.findElements(rowLocator);
 
-	    for (WebElement row : rows) {
-	        List<WebElement> icons = row.findElements(mediaIcon);
+		for (WebElement row : rows) {
+			List<WebElement> icons = row.findElements(mediaIcon);
 
-	        if (!icons.isEmpty()) {  // means enabled icon exists in this row
-	            WebElement stoneIdElement = row.findElement(stoneIdLocator);
-	            return stoneIdElement.getText().trim();
-	        }
-	    }
+			if (!icons.isEmpty()) { // means enabled icon exists in this row
+				WebElement stoneIdElement = row.findElement(stoneIdLocator);
+				return stoneIdElement.getText().trim();
+			}
+		}
 
-	    // if nothing found
-	    return null;
+		// if nothing found
+		return null;
 	}
 
 	public void clickOnMediaIcon(String stoneId) {
@@ -171,11 +176,11 @@ public class SearchResultPage {
 		eu.waitForElementVisible(stoneCount);
 		return eu.doGetText(stoneCount);
 	}
-	
+
 	public boolean isSearchResultTableDisplayed() {
 		return eu.waitForElementVisible(tableHeader).isDisplayed();
 	}
-	
+
 	public void selectGridView() throws InterruptedException {
 		/*
 		 * eu.jsWaitForPageLoad(); Thread.sleep(3000);
@@ -185,8 +190,8 @@ public class SearchResultPage {
 		eu.jsWaitForPageLoad();
 		/* Thread.sleep(2000); */
 	}
-	
-	public void clickOnDetailsBtn() throws InterruptedException{
+
+	public void clickOnDetailsBtn() throws InterruptedException {
 		Thread.sleep(2000);
 		eu.waitForElementVisible(detailsBtn);
 		eu.waitForElementClickable(detailsBtn).click();

@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="6" total="7" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-04T06:00:48Z" name="Default suite" finished-at="2025-12-04T06:02:34Z" duration-ms="105373">
+  <suite started-at="2025-12-23T07:45:10Z" name="Default suite" finished-at="2025-12-23T07:45:49Z" duration-ms="38903">
     <groups>
     </groups>
-    <test started-at="2025-12-04T06:00:48Z" name="Default test" finished-at="2025-12-04T06:02:34Z" duration-ms="105373">
-      <class name="tests.PurchaseWorkflowForNaturalStoneTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.PurchaseWorkflowForNaturalStoneTest@2ab4bc72]" started-at="2025-12-04T06:00:48Z" name="setup" finished-at="2025-12-04T06:00:50Z" duration-ms="1628" status="PASS">
+    <test started-at="2025-12-23T07:45:10Z" name="Default test" finished-at="2025-12-23T07:45:49Z" duration-ms="38903">
+      <class name="tests.PriceTest">
+        <test-method is-config="true" signature="getStoneIdsFromDb()[pri:0, instance:tests.PriceTest@3de8f619]" started-at="2025-12-23T07:45:10Z" name="getStoneIdsFromDb" finished-at="2025-12-23T07:45:13Z" duration-ms="3516" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getStoneIdsFromDb -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.PriceTest@3de8f619]" started-at="2025-12-23T07:45:13Z" name="setup" finished-at="2025-12-23T07:45:15Z" duration-ms="1807" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyUserCanPlaceMemoOfferFromStoneDetails()[pri:6, instance:tests.PurchaseWorkflowForNaturalStoneTest@2ab4bc72]" started-at="2025-12-04T06:00:50Z" name="verifyUserCanPlaceMemoOfferFromStoneDetails" finished-at="2025-12-04T06:02:33Z" duration-ms="103211" status="PASS">
+        <test-method signature="verifyThePriceForRegularStoneInvoiceOnlyOnCheckout()[pri:1, instance:tests.PriceTest@3de8f619]" started-at="2025-12-23T07:45:15Z" name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckout" finished-at="2025-12-23T07:45:49Z" duration-ms="33422" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUserCanPlaceMemoOfferFromStoneDetails -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.PurchaseWorkflowForNaturalStoneTest@2ab4bc72]" started-at="2025-12-04T06:02:33Z" name="tearDown" finished-at="2025-12-04T06:02:34Z" duration-ms="448" status="PASS">
+        </test-method> <!-- verifyThePriceForRegularStoneInvoiceOnlyOnCheckout -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.PriceTest@3de8f619]" started-at="2025-12-23T07:45:49Z" name="tearDown" finished-at="2025-12-23T07:45:49Z" duration-ms="143" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- tests.PurchaseWorkflowForNaturalStoneTest -->
+      </class> <!-- tests.PriceTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

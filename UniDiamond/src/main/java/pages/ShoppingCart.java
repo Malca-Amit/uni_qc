@@ -49,7 +49,8 @@ public class ShoppingCart {
 	By ppcOnmediaDetailsPopup = By.cssSelector("[class=' scatter-video-title row'] b");
 	By unDiscount = By.cssSelector("[class='uni-disc-column']");
 	By singleBid = By.cssSelector("[onclick*='singleBid']");
-	By alertDanger = By.cssSelector("[class='alert alert--positioned alert--success-1 alert--danger']");
+	By alertDanger = By.cssSelector("[class='removedAlertCss alert alert--positioned alert--danger']");
+	By checkboxInput = By.cssSelector("[id='tr21']");
 	
 	public ShoppingCart(WebDriver driver) {
 		this.driver = driver;
@@ -251,5 +252,10 @@ public class ShoppingCart {
 	    } catch (NoAlertPresentException e) {
 	        System.out.println("No alert present. Continuing test execution...");
 	    }
+	}
+	
+	public String getValueAttribute() {
+		String value = eu.getElement(checkboxInput).getAttribute("value");
+		return value;
 	}
 }

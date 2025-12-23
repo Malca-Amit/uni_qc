@@ -8,6 +8,7 @@
     <classes>
       <class name="tests.WednesdaySheetTest">
         <methods>
+          <include name="verifyCreateMemoOfferWithSingleStoneAndRejectFromSeller"/>
           <include name="verifyCreateMemoOfferWithSingleStoneAndAcceptFromSeller"/>
           <include name="tearDown"/>
           <include name="setup"/>
