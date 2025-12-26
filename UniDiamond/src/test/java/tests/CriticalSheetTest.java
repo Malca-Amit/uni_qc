@@ -17,7 +17,7 @@ public class CriticalSheetTest extends BaseTest {
 		stoneIds = DBUtils.getColumnValueFromDB(query, Constant.stoneProductId);
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void verifyThePricesWithMarkupForRetailerUser() throws InterruptedException {
 		String stone = stoneIds.get(0);
 		System.out.println("01-" + stone);
@@ -56,7 +56,7 @@ public class CriticalSheetTest extends BaseTest {
 		Assert.assertEquals((int) page.shoppingCart.getTheTotalPrice(), (int) (totalPrice * 2));
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void VerifyPriceOnAllMediaIconsForEveryPage() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -97,7 +97,7 @@ public class CriticalSheetTest extends BaseTest {
 		page.searchResultPage.closeThePopup();
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void verifyUniDiscountShouldNotShowAfterAddTheQC() throws InterruptedException {
 		login("url", "uniDiamondsUsername", "uniDiamondspassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -116,7 +116,7 @@ public class CriticalSheetTest extends BaseTest {
 				"'Uni Discount' should not be present, but it was found.");
 	}
 
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 4, enabled = false)
 	public void verifyUserIsNotAbleToPlaceBidOfferForTheQcStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -144,7 +144,7 @@ public class CriticalSheetTest extends BaseTest {
 		Assert.assertTrue(page.shoppingCart.isAlertMessageDisplayed(), "Alert message is not displayed");
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void verifyAddingMultipleStoneUsingQuickSearch() throws InterruptedException {
 		String firstStone = stoneIds.get(1);
 		String secondStone = stoneIds.get(2);

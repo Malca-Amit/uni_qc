@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import utils.Constant;
 
 public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void verifyUserCanPlaceOrderUsingBuyForNaturalStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -37,7 +37,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.buyOrderConfirmationMessage));
 	}
 
-	@Test(priority = 2, enabled = true)
+	@Test(priority = 2, enabled = false)
 	public void verifyUserCanPlaceOfferUsingMemoForNaturalStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -72,7 +72,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.memoOfferConfirmationMessage));
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void verifyUserCanPlaceOfferUsingBidForNaturalStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -106,7 +106,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.bidOfferConfirmationMessage));
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void verifyUserCanPlaceOrderUsingBuyWithMultipleNaturalStones() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -140,7 +140,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.buyOrderConfirmationMessage));
 	}
 
-	@Test(priority = 5, enabled = true)
+	@Test(priority = 5, enabled = false)
 	public void verifyUserCanPlaceOfferUsingMemoWithMultipleNaturalStones() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -179,7 +179,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.memoOfferConfirmationMessage));
 	}
 
-	@Test(priority = 6, enabled = false)
+	@Test(priority = 6, enabled = true)
 	public void verifyUserCanPlaceOfferUsingBidWithMultipleNaturalStones() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");

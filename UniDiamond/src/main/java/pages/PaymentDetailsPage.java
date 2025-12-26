@@ -27,6 +27,7 @@ public class PaymentDetailsPage {
 	}
 	By totalPrice = By.cssSelector("[class='fw600 tab_1']");
 	By handlingfee = By.xpath("//*[@id='buyStoneFrm']/div/div/ul/li[6]/span[2]");
+	By buyPrice = By.xpath("//*[@id='buyStoneFrm']/div/div/ul/li[4]/span[2]");
 
 	public PaymentDetailsPage(WebDriver driver) {
 		this.driver = driver;
@@ -104,6 +105,13 @@ public class PaymentDetailsPage {
 		eu.waitForElementPresence(handlingfee);
 		String totalHandlingFee = eu.doGetText(handlingfee);
 		double total = Double.parseDouble(totalHandlingFee.replace("$", "").replace(",", "").trim());
+		return total;
+	}
+	
+	public double getBuyPrice() {
+		eu.waitForElementPresence(buyPrice);
+		String price = eu.doGetText(buyPrice);
+		double total = Double.parseDouble(price.replace("$", "").replace(",", "").trim());
 		return total;
 	}
 }

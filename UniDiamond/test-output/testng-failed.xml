@@ -7,8 +7,8 @@
         <methods>
           <include name="getStoneIdsFromDb"/>
           <include name="tearDown"/>
+          <include name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup"/>
           <include name="setup"/>
-          <include name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckout"/>
         </methods>
       </class> <!-- tests.PriceTest -->
     </classes>
