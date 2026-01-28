@@ -31,8 +31,8 @@ public class Constant {
 	//My Order Page
 	public static String myOrdersLeftNav = "my-orders";
 	public static String reason = "Item damaged/defective";
-	public static String returnStoneId = "01-08491200"; 
-	public static String buyStoneId = "01-11789300"; 
+	public static String returnStoneId = "01-11416275"; 
+	public static String buyStoneId = "01-08659452"; 
 	
 	//payment Details Page
 	public static String shippingAddress = "United";

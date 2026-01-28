@@ -116,7 +116,7 @@ public class CriticalSheetTest extends BaseTest {
 				"'Uni Discount' should not be present, but it was found.");
 	}
 
-	@Test(priority = 4, enabled = false)
+	@Test(priority = 4, enabled = true)
 	public void verifyUserIsNotAbleToPlaceBidOfferForTheQcStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");

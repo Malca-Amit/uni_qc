@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite thread-count="1" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="utils.ExtentRepoertListeners"/>
+  </listeners>
+  <test thread-count="1" name="WednesdaySheetTest(failed)">
     <classes>
-      <class name="tests.PriceTest">
+      <class name="tests.WednesdaySheetTest">
         <methods>
-          <include name="getStoneIdsFromDb"/>
+          <include name="verifyBuyTheMemoStone"/>
           <include name="tearDown"/>
-          <include name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup"/>
           <include name="setup"/>
+          <include name="getDBData"/>
         </methods>
-      </class> <!-- tests.PriceTest -->
+      </class> <!-- tests.WednesdaySheetTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- WednesdaySheetTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

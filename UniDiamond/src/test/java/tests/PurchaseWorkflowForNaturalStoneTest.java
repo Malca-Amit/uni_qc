@@ -37,7 +37,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.buyOrderConfirmationMessage));
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void verifyUserCanPlaceOfferUsingMemoForNaturalStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -140,7 +140,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.buyOrderConfirmationMessage));
 	}
 
-	@Test(priority = 5, enabled = false)
+	@Test(priority = 5, enabled = true)
 	public void verifyUserCanPlaceOfferUsingMemoWithMultipleNaturalStones() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -217,7 +217,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 				page.orderConfirmationPage.getConfimrationMessage().contains(Constant.bidOfferConfirmationMessage));
 	}
 
-	@Test(priority = 7, enabled = false)
+	@Test(priority = 7, enabled = true)
 	public void verifyUserCanPlaceMemoOfferFromStoneDetails() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -252,7 +252,7 @@ public class PurchaseWorkflowForNaturalStoneTest extends BaseTest {
 		Assert.assertTrue(page.stoneDetailsPage.getMemoPlacedSuccessMessage().contains("Your memo has been submitted"));
 	}
 
-	@Test(priority = 8, enabled = false)
+	@Test(priority = 8, enabled = true)
 	public void verifyUserCanPlaceBidOfferFromStoneDetails() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");

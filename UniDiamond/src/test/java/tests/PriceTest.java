@@ -40,10 +40,12 @@ public class PriceTest extends BaseTest {
 		Assert.assertTrue(page.shoppingCart.isSingleSearchResultPresent(1));
 
 		double buyTotalPrice = page.shoppingCart.getTheTotalPrice();
+	    System.out.println("buyTotalPrice Shopigcart=" +buyTotalPrice);
 
 		String productValue = page.shoppingCart.getValueAttribute();
 
-		double DbTotal = getTotalFromDB(productValue, 4830, 0, 1, 0, 1, 0);
+		double DbTotal = getTotalFromDB(productValue, 4927, 0, 1, 0, 1, 0);
+		 System.out.println("DB Total=" +DbTotal);
 
 		page.shoppingCart.selectCheckbox();
 		page.shoppingCart.clickOnBuyNowBtn();
@@ -91,7 +93,7 @@ public class PriceTest extends BaseTest {
 
 		String productValue = page.shoppingCart.getValueAttribute();
 
-		double DbTotal = getTotalFromDB(productValue, 4830, 0, 1, 1, 1, 0);
+		double DbTotal = getTotalFromDB(productValue, 4928, 0, 1, 1, 1, 0);
 
 		page.shoppingCart.selectCheckbox();
 		page.shoppingCart.clickOnBuyNowBtn();

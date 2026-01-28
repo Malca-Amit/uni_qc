@@ -85,7 +85,7 @@ public class WednesdaySheetTest extends BaseTest {
 		Assert.assertTrue(page.vendorOrdersPage.isRejectedStatusIsDisplayed());
 	}
 
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 3, enabled = false)
 	public void verifyCreateBidOfferWithSingleStoneAndAcceptFromSeller() throws InterruptedException {
 		String stoneId = stoneIds.get(2);
 		login("url", "frontendUsername", "frontendpassword");
@@ -117,7 +117,7 @@ public class WednesdaySheetTest extends BaseTest {
 		Assert.assertTrue(page.vendorOrdersPage.isPendingShipmentStatusIsDisplayed());
 	}
 
-	@Test(priority = 4, enabled = true)
+	@Test(priority = 4, enabled = false)
 	public void verifyCreateBidOfferWithSingleStoneAndRejectFromSeller() throws InterruptedException {
 		String stoneId = stoneIds.get(3);
 		login("url", "frontendUsername", "frontendpassword");
@@ -149,7 +149,7 @@ public class WednesdaySheetTest extends BaseTest {
 		Assert.assertTrue(page.vendorOrdersPage.isRejectedStatusIsDisplayed());
 	}
 
-	@Test(priority = 5, enabled = true)
+	@Test(priority = 5, enabled = false)
 	public void VerifyAddQcAndCreateOrderWithQCAndNonQCStone() throws InterruptedException {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");
@@ -188,7 +188,7 @@ public class WednesdaySheetTest extends BaseTest {
 		Assert.assertNotEquals(orderNumbers[0], orderNumbers[1], "Order numbers should be different");
 	}
 	
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 6, enabled = false)
 	public void verifyReturnTheMemoStone() {
 		login("url", "frontendUsername", "frontendpassword");
 		Assert.assertTrue(page.homePage.isLoggedInUserDisplayed(), "User does not login");

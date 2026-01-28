@@ -6,6 +6,7 @@
       <class name="tests.PriceTest">
         <methods>
           <include name="getStoneIdsFromDb"/>
+          <include name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup"/>
           <include name="tearDown"/>
           <include name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup"/>
           <include name="setup"/>

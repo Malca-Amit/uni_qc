@@ -11,7 +11,7 @@ public class MyOrdersPage {
 
 	By searchInput = By.cssSelector("[id='search']");
 	By searchIcon = By.cssSelector("[onclick='searchOrders()']");
-	By tableRow = By.cssSelector("[class='row-selector  ']");
+	By tableRow = By.cssSelector("[class*='row-selector  ']");
 	By returnBtn = By.cssSelector("[onclick*='returnRequest']");
 	By returnPopup = By.cssSelector("[class='stoneReturn_popup']");
 	By returnSelectedItemBtn = By.cssSelector("[id='btn_return']");
@@ -21,7 +21,7 @@ public class MyOrdersPage {
 	By termsAndCondition = By.cssSelector("[name='terms_conditions']");
 	By buyThisStoneBtn = By.cssSelector("input[type='submit']");
 	By allOrderTab = By.cssSelector("a[data-tab='all-orders']");
-	By totalPrice = By.cssSelector("[title*='Total Price:']");
+	By totalPrice = By.cssSelector("[class='total-price-discount total-price-label']");
 	By noResultFoundMessage = By.cssSelector("[class='empty-state-inner']");
 
 	private By returnReason(String reason) {

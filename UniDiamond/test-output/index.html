@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,6 +103,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="tests.PriceTest" class="method navigator-link" hash-for-method="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="tests.PriceTest" class="method navigator-link" hash-for-method="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -132,12 +137,21 @@
 (uniMarkup yes, Credit cost yes, D mergin yes, Regular Stone Invoice Only On Checkout)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup">
+                  </a> <!-- verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup -->
+                  <span class="method-name">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup</span>
+                  <em>
+(uniMarkup no, Credit cost yes, D mergin yes, Regular Stone Invoice Only On Checkout)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/tmp/testng-eclipse--98211673/testng-customsuite.xml</span>
+            <span class="header-content">/tmp/testng-eclipse-1498863873/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -186,16 +200,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup')
+data.setCell(0, 1, 'verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup')
 data.setCell(0, 2, 'tests.PriceTest')
-data.setCell(0, 3, 38322);
+data.setCell(0, 3, 37783);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup')
+data.setCell(1, 2, 'tests.PriceTest')
+data.setCell(1, 3, 36168);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 38 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -210,16 +228,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">tests.PriceTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -235,15 +246,31 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">getStoneIdsFromDb</span>
-                <span class="method-start">1705 ms</span>
+                <span class="method-start">1961 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup</span>
-                <span class="method-start">7336 ms</span>
+                <span class="method-name">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithoutUniMarkup</span>
+                <span class="method-start">6089 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">45660 ms</span>
+                <span class="method-start">43876 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">43990 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">getStoneIdsFromDb</span>
+                <span class="method-start">45007 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyThePriceForRegularStoneInvoiceOnlyOnCheckoutWithUniMarkup</span>
+                <span class="method-start">48288 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">84458 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
